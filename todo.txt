@@ -1,0 +1,4 @@
+- start screen
+- stats
+- restart
+- if go to 0 -> lose -> restart or exit
