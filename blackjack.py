@@ -5,7 +5,7 @@ from PyQt5.QtGui import QPixmap
 from view import *
 import random
 from strat import *
-import time
+#import time
 
 class Blackjack(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -22,10 +22,11 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_instructions.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.instructions))
         self.button_instructions_2.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.instructions))
 
-        #self.shuffle()
+        #game buttons
         self.button_shuffle.clicked.connect(lambda: self.shuffle())
         self.button_hit.clicked.connect(lambda: self.player_hit())
         self.button_stand.clicked.connect(lambda: self.stand())
+        self.button_bet.clicked.connect(lambda: self.bet())
 
         #bet slider and button 
         self.horizontalSlider.setMinimum(10)
@@ -34,10 +35,29 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.horizontalSlider.setTickInterval(10)
         self.horizontalSlider.setSingleStep(10)
         self.horizontalSlider.valueChanged.connect(self.bet_value)
+        #self.horizontalSlider.valueChanged.connect(self.bet)
 
+        #bankroll 
+        self.bankroll = 200
 
+        #disable buttons
+        self.button_hit.setEnabled(False)
+        self.button_stand.setEnabled(False)
+        self.button_shuffle.setEnabled(False)
+
+    def bet(self):
+        #stop slider and get bet value
+        self.bet = self.horizontalSlider.value()
+        self.horizontalSlider.setEnabled(False)
+
+        #open shuffle button
+        self.button_shuffle.setEnabled(True)
+        #close bet button
+        self.button_bet.setEnabled(False)
+
+    #show bet value from slider
     def bet_value(self, value):
-        self.label_bet.setText(f'${str(value)}')
+        self.label_bet.setText(f'${value}')
 
     #stand
     def stand(self):
