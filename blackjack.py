@@ -5,7 +5,8 @@ from PyQt5.QtGui import QPixmap
 from view import *
 import random
 from strat import *
-#import time
+
+#TODO import time
 
 class Blackjack(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -74,22 +75,37 @@ class Blackjack(QMainWindow, Ui_MainWindow):
             #dealer stops hitting
             if self.dealer_total > 21:
                 self.label_result.setText(f'Player Wins with {self.player_total}!!')   
-                self.label_dealer_total.setText(f'Total: {self.dealer_total}')         
+                self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                self.bankroll += self.bet 
+                #button change
+                self.button_bet.setEnabled(True)            
             elif self.dealer_total == self.player_total:
                 self.label_result.setText(f'It\'s a Tie.')   
                 self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                #button change
+                self.button_bet.setEnabled(True)   
             elif self.dealer_total > self.player_total:
                 self.label_result.setText(f'Dealer Wins with {self.dealer_total}.')             
                 self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                self.bankroll -= self.bet 
+                #button change
+                self.button_bet.setEnabled(True) 
             else:
                 self.label_result.setText(f'Player Wins with {self.player_total}!!')  
-                self.label_dealer_total.setText(f'Total: {self.dealer_total}')          
+                self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                self.bankroll += self.bet 
+                #button change
+                self.button_bet.setEnabled(True)           
 
         #dealer needs another card
         else:
             self.dealer_hit()
             self.stand()
-            #time here??
+
+            #TODO time delay here to make it look natural
+
+        #show bankroll
+        self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
 
     #check for blackjack
     def blackjack_check(self, party): 
@@ -144,6 +160,8 @@ class Blackjack(QMainWindow, Ui_MainWindow):
                 self.label_dealer1.setPixmap(self.pos_2_pixmap)
                 self.label_result.setText(f'Push!...It\'s a tie.')   
                 self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                #button change
+                self.button_bet.setEnabled(True)
                 self.button_hit.setEnabled(False)
                 self.button_stand.setEnabled(False)
 
@@ -153,7 +171,10 @@ class Blackjack(QMainWindow, Ui_MainWindow):
 
             #player blackjack
             if self.blackjack_status['player'] == 'yes':
-                self.label_result.setText(f'Blackjack! Player Wins!!')   
+                self.label_result.setText(f'Blackjack! Player Wins!!')
+                self.bankroll += self.bet * 1.5
+                #button change
+                self.button_bet.setEnabled(True)   
                 self.button_hit.setEnabled(False)
                 self.button_stand.setEnabled(False)
 
@@ -164,6 +185,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
                 self.label_dealer1.setPixmap(self.pos_2_pixmap)
                 self.label_result.setText(f'Dealer Blackjack.') 
                 self.label_dealer_total.setText(f'Total: 21')
+                self.bankroll -= self.bet 
+                #button change
+                self.button_bet.setEnabled(True)   
                 self.button_hit.setEnabled(False)
                 self.button_stand.setEnabled(False)
 
@@ -174,6 +198,8 @@ class Blackjack(QMainWindow, Ui_MainWindow):
             if self.blackjack_status['player'] == 'yes' and self.blackjack_status['dealer'] == 'yes':
                 self.label_result.setText(f'Push!...It\'s a tie.')   
                 self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                #button change
+                self.button_bet.setEnabled(True) 
                 self.button_hit.setEnabled(False)
                 self.button_stand.setEnabled(False)
 
@@ -184,6 +210,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
             elif self.blackjack_status['player'] == 'yes':
                 self.label_result.setText(f'21!! You got it!')   
                 self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                self.bankroll += self.bet * 1.5
+                #button change
+                self.button_bet.setEnabled(True)   
                 self.button_hit.setEnabled(False)
                 self.button_stand.setEnabled(False)
 
@@ -193,6 +222,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
             elif self.blackjack_status['dealer'] == 'yes':
                 self.label_result.setText(f'21! Dealer wins.')   
                 self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                self.bankroll -= self.bet 
+                #button change
+                self.button_bet.setEnabled(True)   
                 self.button_hit.setEnabled(False)
                 self.button_stand.setEnabled(False)
 
@@ -201,9 +233,15 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         #player bust
         if self.blackjack_status['player'] == 'bust':
             self.label_dealer1.setPixmap(self.pos_2_pixmap)
-            self.label_result.setText(f'BUST!!! Dealer Win.')   
+            self.label_result.setText(f'BUST!!! Dealer Win.')  
+            self.bankroll -= self.bet 
+            #button change
+            self.button_bet.setEnabled(True)    
             self.button_hit.setEnabled(False)
             self.button_stand.setEnabled(False)
+
+        #show bankroll
+        self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
     
     def shuffle(self): 
         #clear textboxes
