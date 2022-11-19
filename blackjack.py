@@ -15,10 +15,29 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.setWindowTitle("Black Jack!")
         self.setWindowIcon(QtGui.QIcon('images/icon.png'))
 
-        self.shuffle()
+        #main menu start button
+        self.button_start.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.game))
+
+        #instructions button 
+        self.button_instructions.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.instructions))
+        self.button_instructions_2.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.instructions))
+
+        #self.shuffle()
         self.button_shuffle.clicked.connect(lambda: self.shuffle())
         self.button_hit.clicked.connect(lambda: self.player_hit())
         self.button_stand.clicked.connect(lambda: self.stand())
+
+        #bet slider and button 
+        self.horizontalSlider.setMinimum(10)
+        self.horizontalSlider.setMaximum(100)
+        self.horizontalSlider.setTickPosition(QSlider.TicksBelow)
+        self.horizontalSlider.setTickInterval(10)
+        self.horizontalSlider.setSingleStep(10)
+        self.horizontalSlider.valueChanged.connect(self.bet_value)
+
+
+    def bet_value(self, value):
+        self.label_bet.setText(f'${str(value)}')
 
     #stand
     def stand(self):

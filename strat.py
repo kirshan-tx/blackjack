@@ -1,7 +1,7 @@
 
 def strat(player_score, dealer_score):
-    H = 'Hit !!'
-    S = 'Stand...'
+    H = 'Hit!'
+    S = 'Stand.'
 
     player = sum(player_score)
     dealer = int(dealer_score[0])
