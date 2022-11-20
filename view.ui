@@ -1261,7 +1261,7 @@ QLabel::Hover{
       <property name="geometry">
        <rect>
         <x>370</x>
-        <y>320</y>
+        <y>360</y>
         <width>371</width>
         <height>101</height>
        </rect>
@@ -1303,6 +1303,34 @@ QLabel::Hover{
       </property>
       <property name="text">
        <string>RESTART</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_final_bankroll">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>230</y>
+        <width>621</width>
+        <height>91</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>18</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string>Final Bankroll: </string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </widget>

@@ -31,6 +31,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_stand.clicked.connect(lambda: self.stand())
         self.button_bet.clicked.connect(lambda: self.bet_button())
 
+        #exit button
+        self.button_exit.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.game_over))
+
         #game bet slider and button 
         self.horizontalSlider.setMinimum(10)
         self.horizontalSlider.setMaximum(100)
