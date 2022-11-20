@@ -6,7 +6,7 @@ from view import *
 import random
 from strat import *
 
-#TODO import time
+#TODO time delay, bets > bankroll, exit, instruction
 
 class Blackjack(QMainWindow, Ui_MainWindow):
     def __init__(self, *args, **kwargs):
@@ -357,6 +357,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
                         self.button_stand.setEnabled(False)
                         self.label_result.setText(f'5-Card!!! That\'s a lotta cards!')   
                         self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                        self.bankroll += self.bet
+                        #button change
+                        self.button_bet.setEnabled(True) 
                 
             except Exception as e:
                 print(e)
@@ -427,6 +430,10 @@ class Blackjack(QMainWindow, Ui_MainWindow):
                         self.button_stand.setEnabled(False)
                         self.label_result.setText(f'5 Card! Dealer Wins.')   
                         self.label_dealer_total.setText(f'Total: {self.dealer_total}')
+                        self.bankroll -= self.bet
+                        #button change
+                        self.button_bet.setEnabled(True) 
+                        
 
             except Exception as e:
                 print(e)
