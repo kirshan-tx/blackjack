@@ -46,8 +46,14 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_shuffle.setEnabled(False)
 
     def bet_button(self):
-        #stop slider and get bet value
+        #get bet value
         self.bet = self.horizontalSlider.value()
+
+        if self.bet > self.bankroll:
+            self.label_result.setText(f'Bet > Bankroll')   
+            return
+
+        #stop value slider
         self.horizontalSlider.setEnabled(False)
 
         #open shuffle button
@@ -57,13 +63,13 @@ class Blackjack(QMainWindow, Ui_MainWindow):
 
         #show bankroll - bet
         self.bankroll -= self.bet
-        self.label_bankroll.setText(f"Bankroll: ${self.bankroll}")
+        self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
 
     #show bet value from slider
     def bet_value(self, value):
         self.label_bet.setText(f'${value}')
         #dynamically show bankroll - bet
-        self.label_bankroll.setText(f"Bankroll: ${self.bankroll - value}")
+        self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll - value)}")
 
     #stand
     def stand(self):

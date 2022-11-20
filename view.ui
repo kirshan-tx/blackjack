@@ -129,7 +129,515 @@
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="instructions"/>
+    <widget class="QWidget" name="instructions">
+     <widget class="QLabel" name="label_dealer1_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>40</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/back.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_dealer_total_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>280</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string>Total:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_bankroll_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>700</y>
+        <width>151</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string>Bankroll: $200</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_player_total_2">
+      <property name="geometry">
+       <rect>
+        <x>80</x>
+        <y>610</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string>Total: </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_dealer4_2">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>40</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/blank.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_dealer0_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>40</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/2_of_clubs.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_bet_2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>650</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: light gray</string>
+      </property>
+      <property name="text">
+       <string>BET</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_player1_2">
+      <property name="geometry">
+       <rect>
+        <x>250</x>
+        <y>370</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/13_of_hearts.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QSlider" name="horizontalSlider_2">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>710</y>
+        <width>191</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_dealer3_2">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>40</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/blank.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_dealer2_2">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>40</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/blank.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_hint_2">
+      <property name="geometry">
+       <rect>
+        <x>950</x>
+        <y>540</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string>Hint:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_strat_2">
+      <property name="geometry">
+       <rect>
+        <x>1010</x>
+        <y>540</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {
+	color: rgb(0, 103, 0)
+	
+}
+
+QLabel::Hover{
+	color: white
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_exit_2">
+      <property name="geometry">
+       <rect>
+        <x>960</x>
+        <y>50</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: light gray</string>
+      </property>
+      <property name="text">
+       <string>EXIT</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_player2_2">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>370</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/blank.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_stand_2">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>650</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: light gray</string>
+      </property>
+      <property name="text">
+       <string>STAND</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_player4_2">
+      <property name="geometry">
+       <rect>
+        <x>790</x>
+        <y>370</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/blank.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_player0_2">
+      <property name="geometry">
+       <rect>
+        <x>70</x>
+        <y>370</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/14_of_spades.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_shuffle_2">
+      <property name="geometry">
+       <rect>
+        <x>830</x>
+        <y>650</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: light gray</string>
+      </property>
+      <property name="text">
+       <string>SHUFFLE</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_player3_2">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>370</y>
+        <width>150</width>
+        <height>220</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>images/blank.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="button_hit_2">
+      <property name="geometry">
+       <rect>
+        <x>560</x>
+        <y>650</y>
+        <width>110</width>
+        <height>40</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: light gray</string>
+      </property>
+      <property name="text">
+       <string>HIT</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_result_2">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>290</y>
+        <width>621</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>25</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_bet_2">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>650</y>
+        <width>51</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Arial</family>
+        <pointsize>12</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: white
+</string>
+      </property>
+      <property name="text">
+       <string>$10</string>
+      </property>
+     </widget>
+    </widget>
     <widget class="QWidget" name="game">
      <widget class="QLabel" name="label_dealer0">
       <property name="geometry">
@@ -550,30 +1058,6 @@ QLabel::Hover{
       </property>
       <property name="text">
        <string>Bankroll: $200</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="button_instructions_2">
-      <property name="geometry">
-       <rect>
-        <x>960</x>
-        <y>120</y>
-        <width>110</width>
-        <height>40</height>
-       </rect>
-      </property>
-      <property name="font">
-       <font>
-        <family>Arial</family>
-        <pointsize>7</pointsize>
-        <weight>75</weight>
-        <bold>true</bold>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: light gray</string>
-      </property>
-      <property name="text">
-       <string>INSTRUCTIONS</string>
       </property>
      </widget>
      <widget class="QPushButton" name="button_exit">
