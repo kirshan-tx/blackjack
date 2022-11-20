@@ -27,7 +27,7 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_shuffle.clicked.connect(lambda: self.shuffle())
         self.button_hit.clicked.connect(lambda: self.player_hit())
         self.button_stand.clicked.connect(lambda: self.stand())
-        self.button_bet.clicked.connect(lambda: self.bet())
+        self.button_bet.clicked.connect(lambda: self.bet_button())
 
         #bet slider and button 
         self.horizontalSlider.setMinimum(10)
@@ -46,7 +46,7 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_stand.setEnabled(False)
         self.button_shuffle.setEnabled(False)
 
-    def bet(self):
+    def bet_button(self):
         #stop slider and get bet value
         self.bet = self.horizontalSlider.value()
         self.horizontalSlider.setEnabled(False)
@@ -106,6 +106,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
 
         #show bankroll
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
+
+        #open bets
+        self.horizontalSlider.setEnabled(True)
 
     #check for blackjack
     def blackjack_check(self, party): 
@@ -242,8 +245,14 @@ class Blackjack(QMainWindow, Ui_MainWindow):
 
         #show bankroll
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
+
+        #open bets
+        self.horizontalSlider.setEnabled(True)
     
     def shuffle(self): 
+        #close shuffle button
+        self.button_shuffle.setEnabled(False)
+
         #clear textboxes
         self.label_result.setText("")
         self.label_dealer_total.setText("")
