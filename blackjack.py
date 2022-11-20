@@ -32,7 +32,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_bet.clicked.connect(lambda: self.bet_button())
 
         #exit button
-        self.button_exit.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.game_over))
+        self.button_exit.clicked.connect(lambda: self.exit_game())
+        self.button_menu.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.main_menu))
+        self.button_restart.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.game))
 
         #game bet slider and button 
         self.horizontalSlider.setMinimum(10)
@@ -58,6 +60,38 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_hit.setEnabled(False)
         self.button_stand.setEnabled(False)
         self.button_shuffle.setEnabled(False)
+
+    def exit_game(self):
+        self.stackedWidget.setCurrentWidget(self.game_over)
+        self.label_final_bankroll.setText(f"Bankroll: ${int(self.bankroll)}") 
+
+        #reset bankroll
+        self.bankroll = 200
+        self.label_bankroll_2.setText(f"Bankroll: $200")
+
+        #player cards reset
+        self.label_player0.setPixmap(QPixmap('images/blank.png'))
+        self.label_player1.setPixmap(QPixmap('images/blank.png'))
+        self.label_player2.setPixmap(QPixmap('images/blank.png'))
+        self.label_player3.setPixmap(QPixmap('images/blank.png'))
+        self.label_player4.setPixmap(QPixmap('images/blank.png'))
+
+        #dealer cards reset
+        self.label_dealer0.setPixmap(QPixmap('images/blank.png'))
+        self.label_dealer1.setPixmap(QPixmap('images/blank.png'))
+        self.label_dealer2.setPixmap(QPixmap('images/blank.png'))
+        self.label_dealer3.setPixmap(QPixmap('images/blank.png'))
+        self.label_dealer4.setPixmap(QPixmap('images/blank.png'))
+
+        #bets reset
+        self.label_bet.setText(f"$10")
+        self.horizontalSlider.setValue(10)
+
+        #other labels reset
+        self.label_dealer_total.setText(f'Total: ')
+        self.label_player_total.setText(f'Total: ')
+        self.label_result.setText(f'New Game! Goodluck.') 
+        
 
     def bet_button(self):
         #get bet value

@@ -534,7 +534,7 @@ class Ui_MainWindow(object):
         self.label_game_over.setAlignment(QtCore.Qt.AlignCenter)
         self.label_game_over.setObjectName("label_game_over")
         self.button_menu = QtWidgets.QPushButton(self.game_over)
-        self.button_menu.setGeometry(QtCore.QRect(370, 320, 371, 101))
+        self.button_menu.setGeometry(QtCore.QRect(370, 360, 371, 101))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(26)
@@ -553,6 +553,18 @@ class Ui_MainWindow(object):
         self.button_restart.setFont(font)
         self.button_restart.setStyleSheet("background-color: light gray")
         self.button_restart.setObjectName("button_restart")
+        self.label_final_bankroll = QtWidgets.QLabel(self.game_over)
+        self.label_final_bankroll.setGeometry(QtCore.QRect(230, 230, 621, 91))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setPointSize(18)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_final_bankroll.setFont(font)
+        self.label_final_bankroll.setStyleSheet("color: white\n"
+"")
+        self.label_final_bankroll.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_final_bankroll.setObjectName("label_final_bankroll")
         self.stackedWidget.addWidget(self.game_over)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -606,6 +618,7 @@ class Ui_MainWindow(object):
         self.label_game_over.setText(_translate("MainWindow", "Game Over"))
         self.button_menu.setText(_translate("MainWindow", "MENU"))
         self.button_restart.setText(_translate("MainWindow", "RESTART"))
+        self.label_final_bankroll.setText(_translate("MainWindow", "Final Bankroll: "))
 
 
 if __name__ == "__main__":
