@@ -21,7 +21,9 @@ class Blackjack(QMainWindow, Ui_MainWindow):
 
         #instructions button 
         self.button_instructions.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.instructions))
+        self.button_instruction_menu.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.main_menu))
         self.button_instructions_2.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.instructions))
+        self.button_game.clicked.connect(lambda: self.stackedWidget.setCurrentWidget(self.game))
 
         #game buttons
         self.button_shuffle.clicked.connect(lambda: self.shuffle())
@@ -29,7 +31,7 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_stand.clicked.connect(lambda: self.stand())
         self.button_bet.clicked.connect(lambda: self.bet_button())
 
-        #bet slider and button 
+        #game bet slider and button 
         self.horizontalSlider.setMinimum(10)
         self.horizontalSlider.setMaximum(100)
         self.horizontalSlider.setTickPosition(QSlider.TicksBelow)
@@ -37,10 +39,19 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.horizontalSlider.setSingleStep(10)
         self.horizontalSlider.valueChanged.connect(self.bet_value)
 
-        #bankroll 
-        self.bankroll = 200
+        #instruction bet slider and button 
+        self.horizontalSlider_2.setMinimum(10)
+        self.horizontalSlider_2.setMaximum(100)
+        self.horizontalSlider_2.setTickPosition(QSlider.TicksBelow)
+        self.horizontalSlider_2.setTickInterval(10)
+        self.horizontalSlider_2.setSingleStep(10)
+        self.horizontalSlider_2.valueChanged.connect(self.instruction_bet_value)
 
-        #disable buttons
+        #initialize bankrolls 
+        self.bankroll = 200
+        self.bankroll_instruction = 200
+
+        #disable buttons at the start
         self.button_hit.setEnabled(False)
         self.button_stand.setEnabled(False)
         self.button_shuffle.setEnabled(False)
@@ -65,11 +76,17 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.bankroll -= self.bet
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
 
-    #show bet value from slider
+    #game show bet value from slider
     def bet_value(self, value):
         self.label_bet.setText(f'${value}')
         #dynamically show bankroll - bet
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll - value)}")
+
+    #instruction show bet value from slider
+    def instruction_bet_value(self, value):
+        self.label_instruction_bet.setText(f'${value}')
+        #dynamically show bankroll - bet
+        self.label_bankroll_2.setText(f"Bankroll: ${int(self.bankroll_instruction - value)}")    
 
     #stand
     def stand(self):
