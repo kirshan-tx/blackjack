@@ -1,4 +1,1 @@
-- start screen
-- stats
-- restart
-- if go to 0 -> lose -> restart or exit
+- documentation(even in main.py, and all functions), type hinting

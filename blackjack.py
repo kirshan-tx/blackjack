@@ -44,17 +44,8 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.horizontalSlider.setSingleStep(10)
         self.horizontalSlider.valueChanged.connect(self.bet_value)
 
-        #instruction bet slider and button 
-        self.horizontalSlider_2.setMinimum(10)
-        self.horizontalSlider_2.setMaximum(100)
-        self.horizontalSlider_2.setTickPosition(QSlider.TicksBelow)
-        self.horizontalSlider_2.setTickInterval(10)
-        self.horizontalSlider_2.setSingleStep(10)
-        self.horizontalSlider_2.valueChanged.connect(self.instruction_bet_value)
-
         #initialize bankrolls 
         self.bankroll = 200
-        self.bankroll_instruction = 200
 
         #disable buttons at the start
         self.button_hit.setEnabled(False)
@@ -90,7 +81,7 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         #other labels reset
         self.label_dealer_total.setText(f'Total: ')
         self.label_player_total.setText(f'Total: ')
-        self.label_result.setText(f'New Game! Goodluck.') 
+        self.label_result.setText(f'New Game. Goodluck!') 
         
 
     def bet_button(self):
@@ -118,12 +109,6 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.label_bet.setText(f'${value}')
         #dynamically show bankroll - bet
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll - value)}")
-
-    #instruction show bet value from slider
-    def instruction_bet_value(self, value):
-        self.label_instruction_bet.setText(f'${value}')
-        #dynamically show bankroll - bet
-        self.label_bankroll_2.setText(f"Bankroll: ${int(self.bankroll_instruction - value)}")    
 
     #stand
     def stand(self):
