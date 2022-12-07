@@ -5,7 +5,7 @@ def strat(player_score: list[int], dealer_score: list[int]) -> str:
 
     :param player_score: Player score
     :param dealer_score: Dealer score
-    :return: None
+    :return: string
     """
 
     H = 'Hit!'

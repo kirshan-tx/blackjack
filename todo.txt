@@ -1,2 +1,0 @@
-- documentation(even in main.py, and all functions), type hinting
-- is ":list[int]" correct? (in strat.py)
