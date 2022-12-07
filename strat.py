@@ -1,5 +1,13 @@
 
-def strat(player_score, dealer_score):
+def strat(player_score: list[int], dealer_score: list[int]) -> str:
+    """
+    Takes in the player and dealer scores and return the strategy 
+
+    :param player_score: Player score
+    :param dealer_score: Dealer score
+    :return: None
+    """
+
     H = 'Hit!'
     S = 'Stand.'
 

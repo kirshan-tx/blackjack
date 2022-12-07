@@ -6,10 +6,14 @@ from view import *
 import random
 from strat import *
 
-#TODO time delay
-
 class Blackjack(QMainWindow, Ui_MainWindow):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, **kwargs) -> None:
+        """
+        Initializes object and connects all the buttons to their methods 
+
+        :return: None
+        """
+
         super().__init__(*args, **kwargs)
         self.setupUi(self)
         #set window icon and name
@@ -52,13 +56,17 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.button_stand.setEnabled(False)
         self.button_shuffle.setEnabled(False)
 
-    def exit_game(self):
+    def exit_game(self) -> None:
+        """
+        Shows the final bankroll total and reset the game
+
+        :return: None
+        """
         self.stackedWidget.setCurrentWidget(self.game_over)
         self.label_final_bankroll.setText(f"Bankroll: ${int(self.bankroll)}") 
 
         #reset bankroll
         self.bankroll = 200
-        self.label_bankroll_2.setText(f"Bankroll: $200")
 
         #player cards reset
         self.label_player0.setPixmap(QPixmap('images/blank.png'))
@@ -84,7 +92,12 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.label_result.setText(f'New Game. Goodluck!') 
         
 
-    def bet_button(self):
+    def bet_button(self) -> None:
+        """
+        Gets the bet amount and enables the shuffle button 
+
+        :return: None
+        """
         #get bet value
         self.bet = self.horizontalSlider.value()
 
@@ -104,14 +117,26 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.bankroll -= self.bet
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll)}")
 
-    #game show bet value from slider
-    def bet_value(self, value):
+    def bet_value(self, value: int) -> None:
+        """
+        Shows the bet amount on the label from slider 
+
+        :parameter value: Bet amount from slider
+        :return: None
+        """
+        
         self.label_bet.setText(f'${value}')
         #dynamically show bankroll - bet
         self.label_bankroll.setText(f"Bankroll: ${int(self.bankroll - value)}")
 
     #stand
-    def stand(self):
+    def stand(self) -> None:
+        """
+        Deals cards to the dealer until dealer's total is >= 17 and determines the winner
+
+        :return: None
+        """
+
         self.label_dealer1.setPixmap(self.pos_2_pixmap)
 
         self.button_hit.setEnabled(False)
@@ -164,7 +189,12 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         self.horizontalSlider.setEnabled(True)
 
     #check for blackjack
-    def blackjack_check(self, party): 
+    def blackjack_check(self, party: str) -> None: 
+        """
+        Checks user and dealer blackjack
+
+        :return: None
+        """
         self.player_total = 0
         self.dealer_total = 0
 
@@ -310,7 +340,13 @@ class Blackjack(QMainWindow, Ui_MainWindow):
         #open bets
         self.horizontalSlider.setEnabled(True)
     
-    def shuffle(self): 
+    def shuffle(self) -> None: 
+        """
+        Shuffle the cards and displays them on the screen
+
+        :return: None
+        """
+
         #close shuffle button
         self.button_shuffle.setEnabled(False)
 
@@ -370,7 +406,13 @@ class Blackjack(QMainWindow, Ui_MainWindow):
 
 
 
-    def player_hit(self):
+    def player_hit(self) -> None:
+        """
+        Deals the player a card and checks if player has a 5-card win
+
+        :return: None
+        """
+
         if self.player_pos <= 5:
             try:
                 card = random.choice(self.deck) #random card
@@ -442,7 +484,13 @@ class Blackjack(QMainWindow, Ui_MainWindow):
             #check for blackjack
             self.blackjack_check("player")
 
-    def dealer_hit(self):
+    def dealer_hit(self) -> None:
+        """
+        Deals the dealer a card and checks if dealer has a 5-card win
+
+        :return: None
+        """
+
         if self.dealer_pos <= 5:
             try:
                 card = random.choice(self.deck) #random card

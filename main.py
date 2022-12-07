@@ -1,6 +1,12 @@
 from blackjack import * 
 
-def main():
+def main() -> None:
+    """
+    Opens a window showing the application 
+
+    :return: None
+    """
+
     app = QApplication([])
     window = Blackjack()
     window.show()
